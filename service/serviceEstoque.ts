@@ -36,6 +36,36 @@ class estoqueService {
     async list() {
         return await readCSV(filePath);
     }
+
+    async count(){
+        const products = await readCSV(filePath);
+        const numberOfProducts = products.length;
+        return numberOfProducts;
+    }
+    
+    async totalValue(){
+        const data = await this.list();
+        let total = 0;
+    
+        for (const item of data) {
+            if (!isNaN(item.value)) {
+                total += +item.value;
+            }
+        }
+        return total;
+    }
+
+    async totalWeigth(){
+        const data = await this.list();
+        let total = 0;
+    
+        for (const item of data) {
+            if (!isNaN(item.weigth)) {
+                total += +item.weigth;
+            }
+        }
+        return total;
+    }
 }
 
 export default new estoqueService();

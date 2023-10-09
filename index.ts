@@ -1,18 +1,22 @@
 import readline from 'readline';
-import { addProduct, removeProduct, listProducts } from './controller/controleEstoque';
+import { addProduct, removeProduct, listProducts, countProducts, totalValueProducts, totalWeigthProducts } from './controller/controleEstoque';
 import { Data } from './types/data.interface';
 
 function menu() {
     console.log("Menu");
     console.log("1. Adicionar Produto");
-    console.log("2. Listar Itens");
-    console.log("3. Remover Produto");
+    console.log("2. Remover Produto");
+    console.log("3. Listar Itens");
+    console.log("4. Ver Valor Total do Inventário");
+    console.log("5. Ver Peso Total do Inventário");
 
     /*
-    console.log("3. Calcular Valor Total");
-    console.log("4. Calcular Média de Valor");
-    console.log("5. Calcular Quantidade Total");
+    console.log("6. Calcular Média de Valor dos Itens");
+    console.log("7. Calcular Média de Peso dos Itens");
+    console.log("8. Ver Quantidade Total de Itens no Inventário");
     */
+
+    console.log("9. Ver Quantidade Total de Produtos no Inventário");
     console.log("0. Sair");
 }
 
@@ -45,12 +49,24 @@ async function main() {
                 break;
             
             case '2':
-                await listProducts();
+                const title = await ask("Título do produto: ");
+                await removeProduct(title);
                 break;
 
             case '3':
-                const title = await ask("Título do produto: ");
-                await removeProduct(title);
+                await listProducts();
+                break;
+
+            case '4':
+                await totalValueProducts();
+                break;
+
+            case '5':
+                await totalWeigthProducts();
+                break;
+            
+            case '9':
+                await countProducts();
                 break;
 
             case '0':

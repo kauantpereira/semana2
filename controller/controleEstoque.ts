@@ -27,3 +27,30 @@ export async function listProducts(){
         console.log("Erro ao listar produtos:", error);
     }
 }
+
+export async function totalValueProducts(){
+    try{
+        const valueProducts = await serviceEstoque.totalValue();
+        console.log("Valor total dos produtos:", valueProducts);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}
+
+export async function totalWeigthProducts(){
+    try{
+        const weigthProducts = await serviceEstoque.totalWeigth();
+        console.log("Peso total dos produtos:", weigthProducts);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}
+
+export async function countProducts(){
+    try{
+        const numberProducts = await serviceEstoque.count();
+        console.log("Quantidade de produtos no estoque:", numberProducts);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}

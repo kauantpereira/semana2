@@ -18,3 +18,12 @@ export async function removeProduct(title: string){
         console.log("Erro ao remover produto:", error);
     }
 }
+
+export async function listProducts(){
+    try{
+        const items = await serviceEstoque.list();
+        console.log("Produtos no estoque:", items);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}

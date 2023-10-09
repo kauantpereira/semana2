@@ -7,20 +7,6 @@ const filePath = './model/estoque.csv'
 
 class estoqueService {
     async create(data: Data){
-        /* tratamento de erro depois
-        if(data.title == null){
-            throw new Error("Título inválido");
-        }
-        if(data.value < 0){
-            throw new Error("Valor inválido");
-        }
-        if(data.weigth < 0){
-            throw new Error("Peso inválido");
-        }
-        if(data.amount < 0){ //adicionar "se não é inteiro"
-            throw new Error("Quantidade inválida");
-        }
-        */
        
         const products = await readCSV(filePath);
         const verify = products.find(p => p.title == data.title);
@@ -47,6 +33,9 @@ class estoqueService {
         await writeCSV(filePath, products);
     }
 
+    async list() {
+        return await readCSV(filePath);
+    }
 }
 
 export default new estoqueService();

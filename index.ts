@@ -1,15 +1,18 @@
 import readline from 'readline';
-import { addProduct, removeProduct } from './controller/controleEstoque';
+import { addProduct, removeProduct, listProducts } from './controller/controleEstoque';
 import { Data } from './types/data.interface';
 
 function menu() {
-    console.log("Escolha uma opção:");
+    console.log("Menu");
     console.log("1. Adicionar Produto");
     console.log("2. Listar Itens");
+    console.log("3. Remover Produto");
+
+    /*
     console.log("3. Calcular Valor Total");
     console.log("4. Calcular Média de Valor");
     console.log("5. Calcular Quantidade Total");
-    console.log("6. Remover Produto");
+    */
     console.log("0. Sair");
 }
 
@@ -41,7 +44,11 @@ async function main() {
                 await addProduct(data);
                 break;
             
-            case '6':
+            case '2':
+                await listProducts();
+                break;
+
+            case '3':
                 const title = await ask("Título do produto: ");
                 await removeProduct(title);
                 break;

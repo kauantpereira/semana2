@@ -63,3 +63,21 @@ export async function countProducts(){
         console.log("Erro ao listar produtos:", error);
     }
 }
+
+export async function averageWeigthProducts(){
+    try{
+        const average = await serviceEstoque.averageWeigth();
+        console.log("Peso médio dos itens:", average);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}
+
+export async function averageValueProducts(){
+    try{
+        const average = await serviceEstoque.averageValue();
+        console.log("Valor médio dos itens:", average);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}

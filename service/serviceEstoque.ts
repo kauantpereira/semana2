@@ -78,6 +78,20 @@ class estoqueService {
         }
         return total;
     }
+
+    async averageValue(){
+        const valueProducts = await this.totalValue();
+        const total = await this.totalAmount();
+        const average = valueProducts/total;
+        return average;
+    }
+
+    async averageWeigth(){
+        const weigthProducts = await this.totalWeigth();
+        const total = await this.totalAmount();
+        const average = weigthProducts/total;
+        return average;
+    }
 }
 
 export default new estoqueService();

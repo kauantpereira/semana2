@@ -66,6 +66,18 @@ class estoqueService {
         }
         return total;
     }
+
+    async totalAmount(){
+        const data = await this.list();
+        let total = 0;
+    
+        for (const item of data) {
+            if (!isNaN(item.amount)) {
+                total += +item.amount;
+            }
+        }
+        return total;
+    }
 }
 
 export default new estoqueService();

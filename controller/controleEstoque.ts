@@ -46,6 +46,15 @@ export async function totalWeigthProducts(){
     }
 }
 
+export async function totalAmountItems(){
+    try{
+        const amountItems = await serviceEstoque.totalAmount();
+        console.log("Peso total dos produtos:", amountItems);
+    } catch(error){
+        console.log("Erro ao listar produtos:", error);
+    }
+}
+
 export async function countProducts(){
     try{
         const numberProducts = await serviceEstoque.count();

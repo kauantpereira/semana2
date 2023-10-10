@@ -1,5 +1,5 @@
 import readline from 'readline';
-import { addProduct, removeProduct, listProducts, countProducts, totalValueProducts, totalWeigthProducts } from './controller/controleEstoque';
+import { addProduct, removeProduct, listProducts, countProducts, totalValueProducts, totalWeigthProducts, totalAmountItems } from './controller/controleEstoque';
 import { Data } from './types/data.interface';
 
 function menu() {
@@ -10,12 +10,13 @@ function menu() {
     console.log("4. Ver Valor Total do Inventário");
     console.log("5. Ver Peso Total do Inventário");
 
+    console.log("em breve");
     /*
     console.log("6. Calcular Média de Valor dos Itens");
     console.log("7. Calcular Média de Peso dos Itens");
-    console.log("8. Ver Quantidade Total de Itens no Inventário");
     */
-
+   
+    console.log("8. Ver Quantidade Total de Itens no Inventário");
     console.log("9. Ver Quantidade Total de Produtos no Inventário");
     console.log("0. Sair");
 }
@@ -65,6 +66,13 @@ async function main() {
                 await totalWeigthProducts();
                 break;
             
+
+
+
+            case '8':
+                await totalAmountItems();
+                break;
+
             case '9':
                 await countProducts();
                 break;
